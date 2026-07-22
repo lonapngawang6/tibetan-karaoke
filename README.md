@@ -1,2 +1,2 @@
-# tibetan-karaoke
-Tibetan Karaoke website
+# tibet-karaoke
+Tibet Karaoke website
