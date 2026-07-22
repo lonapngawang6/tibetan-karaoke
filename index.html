@@ -1,50 +1,85 @@
 <!DOCTYPE html>
-html lang="bo">
+<html lang="bo">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>བོད་གཞས Karaoke</title>
+<title>Tibetan Karaoke</title>
+
 <style>
 body{
-font-family:sans-serif;
-background:#111;
-color:white;
-text-align:center;
-padding:30px;
+    font-family:Noto Sans Tibetan,sans-serif;
+    background:#f5f5f5;
+    text-align:center;
+    padding:20px;
+}
+.container{
+    max-width:900px;
+    margin:auto;
+    background:white;
+    padding:20px;
+    border-radius:10px;
 }
 h1{
-color:#ffcc00;
+    color:#b30000;
 }
-button{
-background:#ffcc00;
-border:none;
-padding:12px 24px;
-font-size:18px;
-border-radius:10px;
-cursor:pointer;
+.lyrics{
+    text-align:left;
+    font-size:22px;
+    line-height:2;
+    white-space:pre-wrap;
+}
+audio{
+    width:100%;
+    margin:20px 0;
 }
 </style>
 </head>
+
 <body>
 
-<h1>🎤 བོད་གཞས Karaoke</h1>
+<div class="container">
 
-<p>བོད་གཞས་ཀྱི་ Karaoke དྲ་ཚིགས་ལ་ཕེབས་པར་དགའ་བསུ་ཞུ།</p>
+<h1>🎵 གངས་ལྗོངས།</h1>
 
-<button>གཞས་འཚོལ།</button>
-<h2>གླུ་གཞས་ཐོ་གཞུང།</h2>
+<h2>🎤 གཞས་གཏོང་མཁན། ངག་དབང་གླིང་དཀྱིལ།</h2>
 
-<div>
-  <h3>གངས་ལྗོངས།</h3>
-  <p>🎤 ལེན་མཁན། ངག་དབང་གླིང་དཀྱིལ།</p>
+<audio controls>
+<source src="gangsljongs.wav" type="audio/wav">
+</audio>
 
-  <audio controls>
-    <source src="gangsljongs.wav" type="audio/wav">
-  </audio>
+<div class="lyrics">
 
-  <p>
-    <a href="gangsljongs.docx" target="_blank">📄 གཞས་ཚིག</a>
-  </p>
+གངས་ལྗོངས།
+
+ཇོ་མོ་གླང་མ་ང་ཡི་བླ་རི་ཡིན། ཡར་ཀླུང་གཙང་བོ་ང་ཡི་ཁྲག་རྒྱུན་ཡིན།
+
+མདོ་དབུས་ཁམས་གསུམ་ང་ཡི་ཕ་ཡུལ་ཡིན། རྡོག་རྩ་གཅིག་སྒྲིལ་ང་ཡི་རེ་འབོད་ཡིན།
+
+མཐིང་སྨུག་སྦྲ་ཆུང་ང་ཡི་ཕ་ཁྱིམ་ཡིན། ངོ་གདོང་སྨུག་པོ་ང་ཡི་རུས་མདངས་ཡིན།
+
+བཅུ་ཕྲག་རིག་པ་སེམས་ཀྱི་ནོར་བུ་ཡིན། འཛམ་གླིང་ཞི་བདེ་ང་ཡི་སྨོན་འདུན་ཡིན།
+
+༢༽ འདི་ནི་ཁ་བའི་གནས་མཆོག་ཡིན། འདི་ནི་གཙང་པོའི་འབྱུང་ཁུངས་ཡིན།
+
+༼དང་།༽
+
+ཇོ་མོ་གླང་མ་ང་ཡི་བླ་རི་ཡིན། ཡར་ཀླུང་གཙང་བོ་ང་ཡི་ཁྲག་རྒྱུན་ཡིན།
+
+མདོ་དབུས་ཁམས་གསུམ་ང་ཡི་ཕ་ཡུལ་ཡིན། རྡོག་རྩ་གཅིག་སྒྲིལ་ང་ཡི་རེ་འབོད་ཡིན།
+
+མཐིང་སྨུག་སྦྲ་ཆུང་ང་ཡི་ཕ་ཁྱིམ་ཡིན། ངོ་གདོང་སྨུག་པོ་ང་ཡི་རུས་མདངས་ཡིན།
+
+བཅུ་ཕྲག་རིག་པ་སེམས་ཀྱི་ནོར་བུ་ཡིན། འཛམ་གླིང་ཞི་བདེ་ང་ཡི་སྨོན་འདུན་ཡིན།
+
+༢༽ འདི་ནི་ཉི་མའི་ཕ་ས་ཡིན། འདི་ནི་འཛམ་གླིང་གཙུག་རྒྱན་ཡིན།
+
+༢༽ འདི་ནི་གངས་རིའི་ཞིང་ཁམས་ཡིན། འདི་ནི་ང་ཡི་ཕ་ཡུལ་ཡིན།
+
+འཛམ་གླིང་ཞི་བདེ་ང་ཡི་སྨོན་འདུན་ཡིན།
+
 </div>
+
+</div>
+
 </body>
 </html>
