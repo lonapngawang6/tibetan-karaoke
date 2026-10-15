@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="bo">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>བོད་གཞས་རོལ་སྟོང། - Tibetan Karaoke Platform</title>
+    <!-- Google Fonts for Tibetan -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tibetan:wght@400;600;700&family=Noto+Serif+Tibetan:wght@400;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        maroon: {
+                            800: '#6b0f1a',
+                            900: '#4a0710',
+                        },
+                        gold: {
+                            400: '#f1c40f',
+                            500: '#d4af37',
+                            600: '#b8860b',
+                        }
+                    },
+                    fontFamily: {
+                        tibetan: ['"Noto Serif Tibetan"', '"Noto Sans Tibetan"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Noto Serif Tibetan', 'Noto Sans Tibetan', serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #ffe082 0%, #d4af37 50%, #b8860b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1200&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .glass-card:hover {
+            border-color: rgba(212, 175, 55, 0.6);
+        }
+        .tab-page {
+            display: none;
+        }
+        .tab-page.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-tibetan selection:bg-gold-500 selection:text-black">
+
+    <!-- 1. HEADER & NAVIGATION (SIMPLIFIED MENU) -->
+    <header class="sticky top-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-gold-500/30 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center space-x-3 space-x-reverse cursor-pointer" onclick="showTab('home')">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-maroon-800 to-gold-600 flex items-center justify-center shadow-md border border-gold-400">
+                        <i class="fa-solid fa-music text-gold-400 text-lg"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-bold gold-gradient-text tracking-wide">བོད་གཞས་རོལ་སྟོང།</span>
+                        <p class="text-[10px] text-slate-400">Tibetan Karaoke Platform</p>
+                    </div>
+                </div>
+
+                <!-- NAVIGATION BUTTONS (ONLY 3 MENU ITEMS LEFT) -->
+                <nav class="hidden md:flex items-center space-x-8 space-x-reverse text-lg font-bold">
+                    <button id="nav-home" onclick="showTab('home')" class="nav-btn text-gold-400 px-2 py-1">གཙོ་ངོས།</button>
+                    <button id="nav-tracks" onclick="showTab('tracks')" class="nav-btn text-slate-200 hover:text-gold-400 px-2 py-1">🎤 རོལ་སྟོང་དང་གཞས་ཚིག</button>
+                    <button id="nav-contact" onclick="showTab('contact')" class="nav-btn text-slate-200 hover:text-gold-400 px-2 py-1">འབྲེལ་བ།</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="flex-1 flex flex-col">
+        
+        <!-- 2. HERO SECTION (HOME) -->
+        <section id="sec-home" class="tab-page active hero-bg py-24 px-4 sm:px-6 lg:px-8 flex items-center justify-center text-center relative overflow-hidden flex-1">
+            <div class="max-w-2xl mx-auto space-y-6">
+                <h1 class="text-2xl sm:text-4xl font-bold text-white leading-loose gold-gradient-text pt-4">
+                    བོད་གླུ་ལ་དགའ་བའི་གྲོགས་པོ།
+                </h1>
+                <p class="text-base sm:text-xl text-slate-200 leading-relaxed font-tibetan bg-slate-900/80 p-5 sm:p-6 rounded-2xl border border-gold-500/40 shadow-2xl backdrop-blur-md">
+                    གླིང་དཀྱིལ་དྲྭ་ལམ་ནང་ཕེབས་པར་དགའ་བསུ་ཞུ།
+                </p>
+            </div>
+        </section>
+
+        <!-- 3. KARAOKE & SYNCHRONIZED LYRICS SECTION -->
+        <section id="sec-tracks" class="tab-page py-12 bg-slate-900 px-4 sm:px-6 lg:px-8 border-t border-slate-800">
+            <div class="max-w-4xl mx-auto space-y-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-gold-400 mb-2">🎤 རོལ་སྟོང་དང་གཞས་ཚིག <span class="text-white">(Karaoke Player)</span></h2>
+                    <p class="text-slate-400 text-sm">རོལ་མོ་གཏོང་སྐབས་ གཞས་ཚིག་དང་རོལ་མོ་མཉམ་དུ་ཤར་ཡོང་།</p>
+                </div>
+
+                <!-- UPLOAD FORM FOR AUDIO & LYRICS -->
+                <div class="glass-card p-6 rounded-2xl space-y-4 border border-gold-500/40">
+                    <h3 class="text-lg font-bold text-white border-b border-slate-700 pb-2">➕ གཞས་དང་གཞས་ཚིག་གསར་པ་འཇུག་ས།</h3>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs text-slate-300 mb-1">གཞས་ཀྱི་མིང་།</label>
+                            <input type="text" id="song-title" placeholder="དཔེར་ན: ང་ཡི་སྨོན་ལམ།" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm text-white focus:outline-none focus:border-gold-400">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-slate-300 mb-1">གཞས་པའི་མིང་།</label>
+                            <input type="text" id="artist-name" placeholder="དཔེར་ན: ཨ་བཟང།" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm text-white focus:outline-none focus:border-gold-400">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs text-slate-300 mb-1">MP3 རོལ་དབྱངས་ཡིག་ཆ་འདེམས་པ།</label>
+                        <input type="file" id="audio-file" accept="audio/*" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs text-slate-400 file:mr-4 file:py-1.5 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-gold-500 file:text-slate-950 hover:file:bg-gold-600">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs text-slate-300 mb-1">གཞས་ཚིག (Lyrics)</label>
+                        <textarea id="song-lyrics" rows="5" placeholder="འདིར་གཞས་ཚིག་ Copy & Paste བྱོས..." class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm text-white focus:outline-none focus:border-gold-400"></textarea>
+                    </div>
+
+                    <button onclick="addTrack()" class="w-full bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-500 text-slate-950 font-bold py-2.5 rounded-lg text-sm transition shadow-lg">
+                        ➕ གཞས་འདི་ཐོ་གཞུང་ནང་བཅུག་པ།
+                    </button>
+                </div>
+
+                <!-- KARAOKE TRACK LIST & DISPLAY PLAYER -->
+                <div id="track-container" class="space-y-6">
+                    <!-- Dynamic Tracks Will Appear Here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. CONTACT SECTION -->
+        <section id="sec-contact" class="tab-page py-16 bg-slate-950 px-4 sm:px-6 lg:px-8 border-t border-slate-800">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold text-white mb-2">འབྲེལ་བ་བྱེད་ས། <span class="text-gold-400">(Contact & Request)</span></h2>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 border-b border-slate-700 pb-6">
+                        <div>
+                            <p class="text-xs text-slate-400">གོ་སྒྲིག་པ།</p>
+                            <p class="text-base font-bold text-white">ངག་དབང་གླིང་དཀྱིལ།</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-400">གློག་འཕྲིན (Email)</p>
+                            <p class="text-base font-bold text-gold-400">lonapngawang6@gmail.com</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-400">ཁ་པར་ཨང་གྲངས།</p>
+                            <p class="text-base font-bold text-gold-400">0766138732</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 border-t border-slate-800 py-4 text-center text-xs text-slate-500 mt-auto">
+        <p>© ༢༠༢༦ བོད་གཞས་རོལ་སྟོང། - Tibetan Karaoke Platform</p>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        function showTab(tabName) {
+            const pages = document.querySelectorAll('.tab-page');
+            pages.forEach(page => page.classList.remove('active'));
+
+            const navs = ['home', 'tracks', 'contact'];
+            navs.forEach(n => {
+                const el = document.getElementById('nav-' + n);
+                if (el) {
+                    el.classList.remove('text-gold-400');
+                    el.classList.add('text-slate-200');
+                }
+            });
+
+            const targetPage = document.getElementById('sec-' + tabName);
+            const targetNav = document.getElementById('nav-' + tabName);
+
+            if (targetPage) targetPage.classList.add('active');
+            if (targetNav) {
+                targetNav.classList.remove('text-slate-200');
+                targetNav.classList.add('text-gold-400');
+            }
+        }
+
+        // DEFAULT DEMO SONG DATA ("ང་ཡི་སྨོན་ལམ")
+        const defaultSong = {
+            title: "ང་ཡི་སྨོན་ལམ།",
+            artist: "ཨ་བཟང།",
+            lyrics: `༡. ང་ཡི་སྨོན་ལམ་དང་པོ།\nགངས་རི་ལ་ཡར་ལ་བལྟས་པས།།\nསེམས་པ་གངས་ལས་དཀར་བྱུང་།\nསྨོན་ལམ་ཡང་ཡང་བཏབ་ཡོད་ཞུས་པས།།\nགངས་དཀར་པོ་འགྱུར་བ་མེད་པའི་གསུང་དང་ལན་མོ་གསུང༌།\n\n༢. ང་ཡི་སྨོན་ལམ་གཉིས་པ།\nབྲག་རི་ལ་ཡར་ལ་བལྟས་པས།།\nསྐུ་ཚེ་བྲག་ལས་བརྟན་ཤོག\nསྨོན་ལམ་ཡང་ཡང་བཏབ་ཡོད་ཞུས་པས།\nབྲག་དཀར་པོ་འགྱུར་བ་མེད་པའི་གསུང་དང་ལན་མོ་གསུང།\n\n༣. ང་ཡི་སྨོན་ལམ་གསུམ་པ།\nཆུ་མོ་མར་ལ་བལྟས་པས།\nམི་རྒྱུད་ཆུ་ལས་རིང་ཤོག།\nསྨོན་ལམ་ཡང་ཡང་བཏབ་ཡོད་ཞུས་པས།\nཆུ་སྔོན་མོ་འགྱུར་བ་མེད་པའི་གསུང་དང་ལན་མོ་གསུང༌།\n\n༤. ང་ཡི་སྨོན་ལམ་བཟང་པོ།\nབཞུགས་གྲལ་ཡར་ལ་བལྟས་པས། །\nཕ་མ་སྐུ་ཚེ་རིང་ཤོག\nསྨོན་ལམ་ཡང་ཡང་བཏབ་ཡོད་ཞུས་པས།།\nདྲིན་ཕ་མ་སྐུ་ཚེ་རིང་བའི་སྨོན་ལམ་ང་ཡིས་བཏབ་ཡོད།`,
+            audioData: ""
+        };
+
+        // LOAD SAVED TRACKS AND DISPLAY PLAYER WITH LYRICS
+        function loadTracks() {
+            const savedTracks = JSON.parse(localStorage.getItem('myKaraokeTracks') || '[]');
+            if (savedTracks.length === 0) {
+                savedTracks.push(defaultSong);
+            }
+
+            const container = document.getElementById('track-container');
+            container.innerHTML = '';
+
+            savedTracks.forEach((track, index) => {
+                const trackCard = document.createElement('div');
+                trackCard.className = "glass-card p-6 rounded-2xl border border-gold-500/40 space-y-4 shadow-2xl";
+                
+                trackCard.innerHTML = `
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-slate-700 pb-4">
+                        <div>
+                            <span class="text-xs font-semibold bg-gold-500/10 text-gold-400 px-3 py-1 rounded-full border border-gold-500/30">གཞས་པ: ${track.artist}</span>
+                            <h3 class="text-2xl font-bold text-white mt-2">🎵 ${track.title}</h3>
+                        </div>
+                        <button onclick="deleteTrack(${index})" class="text-red-400 hover:text-red-300 text-sm flex items-center gap-1 bg-slate-900 px-3 py-1.5 rounded-lg border border-red-500/30">
+                            <i class="fa-solid fa-trash"></i> སུབ་པ།
+                        </button>
+                    </div>
+
+                    <!-- AUDIO PLAYER -->
+                    <div class="bg-slate-950 p-4 rounded-xl border border-gold-500/20">
+                        <audio controls class="w-full">
+                            <source src="${track.audioData}" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <!-- LYRICS DISPLAYED DIRECTLY WITH AUDIO -->
+                    <div class="bg-slate-950/80 p-5 rounded-xl border border-slate-800 space-y-2">
+                        <h4 class="text-sm font-bold text-gold-400 border-b border-slate-800 pb-2 flex items-center gap-2">
+                            📖 གཞས་ཚིག (Song Lyrics)
+                        </h4>
+                        <div class="text-slate-200 text-sm sm:text-base leading-loose font-tibetan whitespace-pre-line pt-2">
+                            ${track.lyrics ? track.lyrics : 'གཞས་ཚིག་བཅུག་མེད།'}
+                        </div>
+                    </div>
+                `;
+                container.appendChild(trackCard);
+            });
+        }
+
+        // ADD AND SAVE TRACK WITH LYRICS TO LOCALSTORAGE
+        function addTrack() {
+            const title = document.getElementById('song-title').value;
+            const artist = document.getElementById('artist-name').value;
+            const lyrics = document.getElementById('song-lyrics').value;
+            const fileInput = document.getElementById('audio-file');
+            const file = fileInput.files[0];
+
+            if (!title || !artist) {
+                alert("གཞས་ཀྱི་མིང་དང་ གཞས་པའི་མིང་འབྲི་རོགས།");
+                return;
+            }
+
+            const savedTracks = JSON.parse(localStorage.getItem('myKaraokeTracks') || '[]');
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const audioData = e.target.result;
+                    savedTracks.unshift({ title, artist, lyrics, audioData });
+                    saveAndRefresh(savedTracks);
+                };
+                reader.readAsDataURL(file);
+            } else {
+                savedTracks.unshift({ title, artist, lyrics, audioData: "" });
+                saveAndRefresh(savedTracks);
+            }
+        }
+
+        function saveAndRefresh(savedTracks) {
+            try {
+                localStorage.setItem('myKaraokeTracks', JSON.stringify(savedTracks));
+                loadTracks();
+                document.getElementById('song-title').value = '';
+                document.getElementById('artist-name').value = '';
+                document.getElementById('song-lyrics').value = '';
+                document.getElementById('audio-file').value = '';
+            } catch (err) {
+                alert("MP3 ཡིག་ཆ་ཆེ་དྲགས་པས་ Browser Storage ནང་མ་ཤོང་།");
+            }
+        }
+
+        // DELETE TRACK
+        function deleteTrack(index) {
+            let savedTracks = JSON.parse(localStorage.getItem('myKaraokeTracks') || '[]');
+            savedTracks.splice(index, 1);
+            localStorage.setItem('myKaraokeTracks', JSON.stringify(savedTracks));
+            loadTracks();
+        }
+
+        loadTracks();
+    </script>
+</body>
+</html>
